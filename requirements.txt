@@ -11,3 +11,4 @@ scikit-learn==0.24.2
 matplotlib>=1.4.3
 pandas>=0.19
 Flask-cors==3.0.10
+xgboost==1.4.1
