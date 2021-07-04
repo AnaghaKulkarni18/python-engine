@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  
+</head>
+
+<body style=background-color:lightgrey;>
+ <div class="login">
+	<h1 style="color:blue;">Ames Iowa House Price Prediction with Machine Learning</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    	
+	
+	<label for="LotArea" style="color:blue;">LotArea (sqft)</label><br>
+    	<input type="number" id="LotArea" name="LotArea" placeholder="Lot Area in Square feet.." required="required"><br><br>
+
+    	<label for="GrLivArea" style="color:blue;">GrLivArea</label><br>
+    	<input type="number" id="GrLivArea" name="GrLivArea" placeholder="Ground living area in Square feet.." required="required"><br><br>
+
+    	<label for="1stFlrSF" style="color:blue;">1stFlrSF</label><br>
+    	<input type="number" id="1stFlrSF" name="1stFlrSF" placeholder="1st floor area in Square feet.." required="required"><br><br>
+     
+    	<label for="GarageArea" style="color:blue;">GarageArea</label><br>
+    	<input type="number" id= "GarageArea" name="GarageArea" placeholder="Garage Area.." required="required" /><br><br>
+
+    	<label for="BsmtUnfSF" style="color:blue;">BsmtUnfSF</label><br>
+    	<input type="number" id= "BsmtUnfSF" name="BsmtUnfSF" placeholder="Unfinished square feet of basement area.." required="required" /><br><br>
+
+    	<label for="TotalBsmtSF" style="color:blue;">TotalBsmtSF</label><br>
+    	<input type="number" id= "TotalBsmtSF" name="TotalBsmtSF" placeholder="Total square feet of basement area.." required="required" /><br><br>
+
+    	<label for="LotFrontage" style="color:blue;">LotFrontage</label><br>
+    	<input type="number" id= "LotFrontage" name="LotFrontage" placeholder="Lot Frontage.." required="required" /><br><br>
+
+    	<label for="YearBuilt" style="color:blue;">YearBuilt</label><br>
+    	<input type="number" id= "YearBuilt" name="YearBuilt" placeholder="Original construction date.." required="required" /><br><br>
+
+    	<label for="'MoSold" style="color:blue;">MoSold</label><br>
+    	<input type="number" id= "'MoSold" name="MoSold" placeholder="Month Sold.." required="required" /><br><br>
+    
+    	<label for="GarageYrBlt" style="color:blue;">GarageYrBlt</label><br>
+    	<input type="number" id= "GarageYrBlt" name="GarageYrBlt" placeholder="Year garage was built.." required="required" /><br><br>
+
+    	<label for="BsmtFinSF1" style="color:blue;">BsmtFinSF1</label><br>
+    	<input type="number" id= "BsmtFinSF1" name="BsmtFinSF1" placeholder="Type 1 finished square feet.." required="required" /><br><br>
+
+    	<label for="YearRemodAdd" style="color:blue;">YearRemodAdd</label><br>
+    	<input type="number" id= "YearRemodAdd" name="YearRemodAdd" placeholder="Remodel year.." required="required" /><br><br>
+
+    	<label for="OpenPorchSF" style="color:blue;">OpenPorchSF</label><br>
+    	<input type="number" id= "OpenPorchSF" name="OpenPorchSF" placeholder="Open porch area in square feet.." required="required" /><br><br>
+
+    	<label for="WoodDeckSF" style="color:blue;">WoodDeckSF</label><br>
+    	<input type="number" id= "WoodDeckSF" name="WoodDeckSF" placeholder="Wood deck area in square feet.." required="required" /><br><br>
+
+    	<label for="Neighborhood" style="color:blue;">Neighborhood</label><br>
+    	<input type="number" id= "Neighborhood" name="Neighborhood" placeholder="Locations within Ames city limits.." required="required"/><br><br>
+
+    	<label for="MasVnrArea" style="color:blue;">MasVnrArea</label><br>
+    	<input type="number" id= "MasVnrArea" name="MasVnrArea" placeholder="Masonry veneer type.." required="required" /><br><br>
+
+    	<label for="OverallQual" style="color:blue;">OverallQual</label><br>
+    	<input type="number" id= "OverallQual" name="OverallQual" placeholder="Overall Quality.." required="required" /><br><br>
+
+    	<label for="2ndFlrSF" style="color:blue;">2ndFlrSF</label><br>
+    	<input type="number" id= "2ndFlrSF" name="2ndFlrSF" placeholder="2nd floor square feet area.." required="required" /><br><br>
+
+    	<label for="TotRmsAbvGrd" style="color:blue;">TotRmsAbvGrd</label><br>
+    	<input type="number" id= "TotRmsAbvGrd" name="TotRmsAbvGrd" placeholder="Total rooms above grade.." required="required" /><br><br>
+
+   	<label for="Exterior1st" style="color:blue;">Exterior1st</label><br>
+    	<input type="number" id= "Exterior1st" name="Exterior1st" placeholder="Exterior covering on house.." required="required" /><br><br>
+  
+        <button type="submit" class="btn btn-primary btn-block btn-large" button style="background-color:red; border-color:blue; color:white" button style="width:100;height:100">Predict</button>
+    
+  </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
